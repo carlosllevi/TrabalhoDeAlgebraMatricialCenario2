@@ -1,7 +1,7 @@
 package cenario.um;
 
 public class Vector {
-    int dim;
+    public int dim;
     Matrix coluna; // Vetor agora é uma matriz coluna (n x 1)
 
     // Constructor Vector
@@ -37,14 +37,14 @@ public class Vector {
     }
 
     // Setter com double
-    public void set(int i, double valor) {
+    public void setDouble(int i, double valor) {
         coluna.set(i, 0, valor);
     }
 
     // Print Vector
     public void print() {
         for (int i = 0; i < dim; i++) {
-            System.out.println(get(i));
+            System.out.println(getDouble(i));
         }
     }
 

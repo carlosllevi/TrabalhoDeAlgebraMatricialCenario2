@@ -1,14 +1,13 @@
 package cenario.dois;
 
-import cenario.um.LinearAlgebra;
-import cenario.um.Matrix;
 import cenario.um.Vector;
 
 public class Main {
     public static void main(String[] args) {
-        Vector v = new Vector(2, new double[] {1,0});
-        double angle = Math.toRadians(90);
+        Vector v = new Vector(2, new double[] {1,2});
+        double angle = Math.toRadians(-90);
         Vector vR = TransformacoesLineares.rotation2D(v, angle);
+        System.out.println("---------Rotação em 2D--------");
         vR.print();
         System.out.println();
 
@@ -16,10 +15,13 @@ public class Main {
         Vector vRx = TransformacoesLineares.rotation3DX(v2, angle);
         Vector vRy = TransformacoesLineares.rotation3DY(v2, angle);
         Vector vRz = TransformacoesLineares.rotation3DZ(v2, angle);
+        System.out.println("-----Rotação em 3D eixo X-----");
         vRx.print();
         System.out.println();
+        System.out.println("-----Rotação em 3D eixo Y-----");
         vRy.print();
         System.out.println();
+        System.out.println("-----Rotação em 3D eixo Z-----");
         vRz.print();
     }
 }

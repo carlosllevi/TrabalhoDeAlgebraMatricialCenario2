@@ -56,12 +56,13 @@ public class LinearAlgebra {
         for (int i = 0; i < c.linhas; i++) {
             for (int j = 0; j < c.colunas; j++) {
 
-                int soma = 0;
+                double soma = 0;
 
                 for (int k = 0; k < a.colunas; k++) {
                     soma += a.matriz[i][k] * b.matriz[k][j];
-                    c.matriz[i][j] = soma;
+
                 }
+                c.matriz[i][j] = soma;
             }
         }
         return c;
@@ -77,7 +78,10 @@ public class LinearAlgebra {
 
     // Dot Product Matrix-Vector
     public static Vector dotMV(Matrix a, Vector b) {
-        Matrix resultado = dot(a, b.coluna);
+        Matrix bComoMatrizColuna = b.coluna; // <-- Isso é suspeito.
+        // Mostre-me esse código se o erro persistir.
+
+        Matrix resultado = dot(a, bComoMatrizColuna);
 
         double[] elementos = new double[resultado.linhas];
         for (int i = 0; i < resultado.linhas; i++) {
