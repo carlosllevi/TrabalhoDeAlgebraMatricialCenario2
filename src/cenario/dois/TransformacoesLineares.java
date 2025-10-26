@@ -35,4 +35,39 @@ public class TransformacoesLineares {
         return new Vector(3, new double[] {Math.round(resultado.getDouble(0)), Math.round(resultado.getDouble(1)), Math.round(resultado.getDouble(2))});
     }
 
+    // Translação
+    public static Vector translate2D(Vector v, double dx, double dy) {
+
+        Vector v_hom = new Vector(3, new double[]{v.getDouble(0), v.getDouble(1), 1.0});
+
+        Matrix m = new Matrix(3, 3, new double[]{
+                1, 0, dx,
+                0, 1, dy,
+                0, 0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+
+        return new Vector(2, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1))
+        });
+    }
+
+    public static Vector translate3D(Vector v, double dx, double dy, double dz) {
+
+        Vector v_hom = new Vector(4, new double[]{v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0});
+
+        Matrix m = new Matrix(4, 4, new double[]{
+                1, 0, 0, dx,
+                0, 1, 0, dy,
+                0, 0, 1, dz,
+                0, 0, 0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(3, new double[] {Math.round(resultado.getDouble(0)), Math.round(resultado.getDouble(1)), Math.round(resultado.getDouble(2))});
+        }
 }

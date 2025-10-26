@@ -2,7 +2,7 @@ package cenario.dois;
 
 import cenario.um.Vector;
 
-public class Main {
+public class MainRotation {
     public static void main(String[] args) {
         Vector v = new Vector(2, new double[] {1,2});
         double angle = Math.toRadians(-90);
