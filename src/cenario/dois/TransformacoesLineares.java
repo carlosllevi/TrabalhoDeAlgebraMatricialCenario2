@@ -70,4 +70,178 @@ public class TransformacoesLineares {
 
         return new Vector(3, new double[] {Math.round(resultado.getDouble(0)), Math.round(resultado.getDouble(1)), Math.round(resultado.getDouble(2))});
         }
+
+    // Reflexão
+    public static Vector reflection2DX(Vector v) {
+        Vector v_hom = new Vector(3, new double[]{v.getDouble(0), v.getDouble(1), 1.0});
+        Matrix m = new Matrix(3, 3, new double[]{
+                1,  0, 0,
+                0, -1, 0,
+                0,  0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(2, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1))
+        });
+    }
+
+    public static Vector reflection2DY(Vector v) {
+        Vector v_hom = new Vector(3, new double[]{v.getDouble(0), v.getDouble(1), 1.0});
+        Matrix m = new Matrix(3, 3, new double[]{
+                -1, 0, 0,
+                0, 1, 0,
+                0, 0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(2, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1))
+        });
+    }
+
+    public static Vector reflection3DX(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{
+                v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0
+        });
+
+        Matrix m = new Matrix(4, 4, new double[]{
+                -1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+        });
+    }
+
+    public static Vector reflection3DY(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{
+                v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0
+        });
+
+        Matrix m = new Matrix(4, 4, new double[]{
+                1,  0, 0, 0,
+                0, -1, 0, 0,
+                0,  0, 1, 0,
+                0,  0, 0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+        });
+    }
+
+    public static Vector reflection3DZ(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{
+                v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0
+        });
+
+        Matrix m = new Matrix(4, 4, new double[]{
+                1, 0,  0, 0,
+                0, 1,  0, 0,
+                0, 0, -1, 0,
+                0, 0,  0, 1
+        });
+
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+                });
+    }
+
+    // PROJEÇÃO 2D
+    public static Vector projection2DX(Vector v) {
+        Vector v_hom = new Vector(3, new double[]{v.getDouble(0), v.getDouble(1), 1.0});
+        Matrix m = new Matrix(3, 3, new double[]{
+                1, 0, 0,
+                0, 0, 0,
+                0, 0, 1
+        });
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+        return new Vector(2, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1))
+        });
+    }
+
+    public static Vector projection2DY(Vector v) {
+        Vector v_hom = new Vector(3, new double[]{v.getDouble(0), v.getDouble(1), 1.0});
+        Matrix m = new Matrix(3, 3, new double[]{
+                0, 0, 0,
+                0, 1, 0,
+                0, 0, 1
+        });
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+        return new Vector(2, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1))
+        });
+    }
+
+    // PROJEÇÃO 3D
+    public static Vector projection3DX(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0});
+        Matrix m = new Matrix(4, 4, new double[]{
+                1, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 1
+        });
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+        });
+    }
+
+    public static Vector projection3DY(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0});
+        Matrix m = new Matrix(4, 4, new double[]{
+                0, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 1
+        });
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+        });
+    }
+
+    public static Vector projection3DZ(Vector v) {
+        Vector v_hom = new Vector(4, new double[]{v.getDouble(0), v.getDouble(1), v.getDouble(2), 1.0});
+        Matrix m = new Matrix(4, 4, new double[]{
+                0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1
+        });
+        Vector resultado = LinearAlgebra.dotMV(m, v_hom);
+        return new Vector(3, new double[]{
+                Math.round(resultado.getDouble(0)),
+                Math.round(resultado.getDouble(1)),
+                Math.round(resultado.getDouble(2))
+                });
+    }
 }
