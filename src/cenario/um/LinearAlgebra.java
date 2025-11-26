@@ -106,15 +106,12 @@ public class LinearAlgebra {
     }
 
     // Times Vector - multiplica vetor por escalar
-    public static Vector times(int escalar, Vector a) {
-        Matrix resultado = times(escalar, a.coluna);
-
-        double[] elementos = new double[a.dim];
+    public static Vector times(double escalar, Vector a) {
+        double[] resultado = new double[a.dim];
         for (int i = 0; i < a.dim; i++) {
-            elementos[i] = resultado.get(i, 0);
+            resultado[i] = a.get(i) * escalar;
         }
-
-        return new Vector(a.dim, elementos);
+        return new Vector(a.dim, resultado);
     }
 
     //Gauss Matrix

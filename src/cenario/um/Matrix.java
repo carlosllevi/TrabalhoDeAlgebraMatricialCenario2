@@ -2,8 +2,8 @@ package cenario.um;
 
 public class Matrix {
 
-    int linhas;
-    int colunas;
+    public int linhas;
+    public int colunas;
     double [][] matriz;
 
     //Constructor Matrix
