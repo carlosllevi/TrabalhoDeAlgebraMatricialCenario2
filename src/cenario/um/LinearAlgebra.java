@@ -78,16 +78,13 @@ public class LinearAlgebra {
 
     // Dot Product Matrix-Vector
     public static Vector dotMV(Matrix a, Vector b) {
-        Matrix bComoMatrizColuna = b.coluna; // <-- Isso é suspeito.
-        // Mostre-me esse código se o erro persistir.
-
+        Matrix bComoMatrizColuna = b.getMatrix(); // Use o getter público que você criou
         Matrix resultado = dot(a, bComoMatrizColuna);
 
         double[] elementos = new double[resultado.linhas];
         for (int i = 0; i < resultado.linhas; i++) {
             elementos[i] = resultado.get(i, 0);
         }
-
         return new Vector(resultado.linhas, elementos);
     }
 
@@ -109,7 +106,8 @@ public class LinearAlgebra {
     public static Vector times(double escalar, Vector a) {
         double[] resultado = new double[a.dim];
         for (int i = 0; i < a.dim; i++) {
-            resultado[i] = a.get(i) * escalar;
+            // Mudei de a.get(i) para a.getDouble(i)
+            resultado[i] = a.getDouble(i) * escalar;
         }
         return new Vector(a.dim, resultado);
     }
